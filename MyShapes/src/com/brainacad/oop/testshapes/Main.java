@@ -1,6 +1,7 @@
 package com.brainacad.oop.testshapes;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
@@ -15,6 +16,10 @@ public class Main {
 		lab_2_8_3();
 		System.out.println("\n\nLabs 2.8.4:\n");
 		lab_2_8_4();
+		System.out.println("\n\nLabs 2.10.3 - 2.10.4:\n");
+		lab_2_10_3_and_2_10_4();
+		System.out.println("\n\nLabs 2.10.5:\n");
+		lab_2_10_5();
 
 	}
 
@@ -152,4 +157,36 @@ public class Main {
 
 	}
 
+	private static void lab_2_10_3_and_2_10_4() {
+
+		Shape[] shapes = new Shape[3];
+		shapes[0] = Shape.parseShape("Rectangle: MAGENTA : 13 , 27");
+		shapes[1] = Shape.parseShape("Circle: BLACK: 102");
+		shapes[2] = Shape.parseShape("Triangle: GREEN : 94 , 74 , 125");
+		for (Shape shape : shapes) {
+			System.out.println(shape.toString());
+		}
+
+	}
+
+	private static void lab_2_10_5() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Input array size: ");
+		int size = Integer.parseInt(scan.next());
+
+		Shape[] shapes = new Shape[size];
+		for (int i = 0; i < shapes.length; i++) {
+			System.out.print("Give shape number " + (i + 1) + ": ");
+			String givenShape = scan.next();
+			System.out.println(givenShape);
+			shapes[i] = Shape.parseShape(givenShape);
+		}
+
+		System.out.println("\nThere are shapes that were given:\n");
+
+		for (Shape shape : shapes) {
+			shape.draw();
+		}
+
+	}
 }

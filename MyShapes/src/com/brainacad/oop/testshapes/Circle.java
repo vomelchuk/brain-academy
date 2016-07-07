@@ -11,6 +11,13 @@ public class Circle extends Shape implements Comparable {
 	}
 
 	// methods
+	public static Circle parseCircle(String str) {
+		String color = str
+				.substring(str.indexOf(":") + 1, str.lastIndexOf(":")).trim();
+		double r = Double.parseDouble(str.substring(str.lastIndexOf(":") + 1));
+		return new Circle(color, r);
+	}
+
 	@Override
 	public double calcArea() {
 		return Math.PI * Math.pow(radius, 2);

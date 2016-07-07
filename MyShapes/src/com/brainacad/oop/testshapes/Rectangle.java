@@ -14,6 +14,15 @@ public class Rectangle extends Shape implements Comparable {
 	}
 
 	// methods
+	public static Rectangle parseRectangle(String str) {
+		String color = str
+				.substring(str.indexOf(":") + 1, str.lastIndexOf(":")).trim();
+		double w = Double.parseDouble(str.substring(str.lastIndexOf(":") + 1,
+				str.indexOf(",")));
+		double h = Double.parseDouble(str.substring(str.lastIndexOf(",") + 1));
+		return new Rectangle(color, w, h);
+	}
+
 	@Override
 	public double calcArea() {
 		return width * height;

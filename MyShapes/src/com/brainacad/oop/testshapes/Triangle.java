@@ -15,6 +15,17 @@ public class Triangle extends Shape implements Comparable {
 	}
 
 	// methods
+	public static Triangle parseTriangle(String str) {
+		String color = str
+				.substring(str.indexOf(":") + 1, str.lastIndexOf(":")).trim();
+		double a = Double.parseDouble(str.substring(str.lastIndexOf(":") + 1,
+				str.indexOf(",")));
+		double b = Double.parseDouble(str.substring(str.indexOf(",") + 1,
+				str.lastIndexOf(",")));
+		double c = Double.parseDouble(str.substring(str.lastIndexOf(",") + 1));
+		return new Triangle(color, a, b, c);
+	}
+
 	@Override
 	public double calcArea() {
 		double s = (a + b + c) / 2;
