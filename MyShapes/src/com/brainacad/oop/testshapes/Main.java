@@ -20,6 +20,8 @@ public class Main {
 		lab_2_10_3_and_2_10_4();
 		System.out.println("\n\nLabs 2.10.5:\n");
 		lab_2_10_5();
+		System.out.println("\n\nLabs 2.11.4:\n");
+		lab_2_11_4();
 
 	}
 
@@ -79,7 +81,7 @@ public class Main {
 		// these variables accumulate sum of corresponding type
 		double sumArea, sumRectArea, sumTriangleArea, sumCircleArea;
 		sumArea = sumRectArea = sumTriangleArea = sumCircleArea = 0;
-		// iterate array of shapes to show their charactristics and evaluate
+		// iterate array of shapes to show their characteristics and evaluate
 		// corresponding sums
 		for (Shape shape : shapes) {
 			// characteristics of current shape
@@ -160,9 +162,14 @@ public class Main {
 	private static void lab_2_10_3_and_2_10_4() {
 
 		Shape[] shapes = new Shape[3];
-		shapes[0] = Shape.parseShape("Rectangle: MAGENTA : 13 , 27");
-		shapes[1] = Shape.parseShape("Circle: BLACK: 102");
-		shapes[2] = Shape.parseShape("Triangle: GREEN : 94 , 74 , 125");
+		try {
+			shapes[0] = Shape.parseShape("Rectangle:MAGENTA:13,27");
+			shapes[1] = Shape.parseShape("Circle:BLACK:102");
+			shapes[2] = Shape.parseShape("Triangle:GREEN:94,74,125");
+		} catch (InvalidShapeStringException e) {
+			e.printStackTrace();
+		}
+
 		for (Shape shape : shapes) {
 			System.out.println(shape.toString());
 		}
@@ -173,20 +180,58 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Input array size: ");
 		int size = Integer.parseInt(scan.next());
-
+		System.out
+				.println("FORMAT: ShapeName:colorShape:parameter1, parameter2,...");
 		Shape[] shapes = new Shape[size];
-		for (int i = 0; i < shapes.length; i++) {
-			System.out.print("Give shape number " + (i + 1) + ": ");
-			String givenShape = scan.next();
-			System.out.println(givenShape);
-			shapes[i] = Shape.parseShape(givenShape);
+		try {
+			for (int i = 0; i < shapes.length; i++) {
+				System.out.print("Give shape number " + (i + 1) + ": ");
+				String givenShape = scan.next();
+				shapes[i] = Shape.parseShape(givenShape);
+
+			}
+			System.out.println("\nThere are shapes that were given:\n");
+
+			for (Shape shape : shapes) {
+				shape.draw();
+			}
+		} catch (InvalidShapeStringException e) {
+			System.out.println(e.getMessage());
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
 		}
 
-		System.out.println("\nThere are shapes that were given:\n");
+	}
+
+	private static void lab_2_11_4() {
+		Shape[] shapes = new Shape[3];
+		try {
+			shapes[0] = Shape.parseShape("Rectangle :MAGENTA :133,270");
+			shapes[1] = Shape.parseShape("Circle:BLACK:102.56");
+			shapes[2] = Shape.parseShape("Triangle:GREEN:94.56,74,125.08");
+		} catch (InvalidShapeStringException e) {
+			e.printStackTrace();
+		}
 
 		for (Shape shape : shapes) {
-			shape.draw();
+			System.out.println(shape.toString());
 		}
+		System.out.println();
+		Scanner scan = new Scanner(System.in);
+		Shape shape;
+		String prompt;
+		do {
+			System.out.print("Give shape: ");
+			String givenShape = scan.next();
+			try {
+				shape = Shape.parseShape(givenShape);
+				shape.draw();
+			} catch (InvalidShapeStringException e) {
+				System.out.println(e.getMessage());
+			}
+			System.out.print("Continue? (yes/no): ");
+			prompt = scan.next();
+		} while (prompt.equalsIgnoreCase("yes"));
 
 	}
 }
