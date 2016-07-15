@@ -100,7 +100,7 @@ public class Main {
 				sumTriangleArea += area;
 			}
 		}
-		// show corresponding sums
+		// show corresponding sums 
 		System.out.printf("Shapes total area: %.2f\n", sumArea);
 		System.out
 				.printf("Rectangle total area: %.2f\nCircle total area: %.2f\nTriangle total area: %.2f\n",

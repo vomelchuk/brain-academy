@@ -43,7 +43,7 @@ public abstract class Shape implements Drawable {
 			return Rectangle.parseRectangle(str);
 		case CIRCLE:
 			checkColor(str);
-			if (!checkParameters(str, "[0-9]+[.]?[0-9]+")) {
+			if (!checkParameters(str, "[0-9]+[.]?[0-9]*")) {
 				throw new InvalidShapeStringException(
 						"Wrong parameters for circle!");
 			}
