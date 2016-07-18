@@ -17,7 +17,7 @@ public class MyTranslator {
 		while (parse.hasMoreTokens()) {
 			String word = parse.nextToken();
 			result.append(dictionary.containsKey(word) ? dictionary.get(word)
-					: "-" + word + "-");
+					: word);
 			result.append(" ");
 		}
 		return result.toString();
