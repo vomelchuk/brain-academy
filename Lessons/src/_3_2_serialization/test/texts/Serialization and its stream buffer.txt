@@ -1,0 +1,3 @@
+    ObjectOutputStream class instance method flush() allows to separate its 
+buffer consist between threads. So, use it in multithreaded parts of code with
+reset() method after each writeObject() method invoking. 

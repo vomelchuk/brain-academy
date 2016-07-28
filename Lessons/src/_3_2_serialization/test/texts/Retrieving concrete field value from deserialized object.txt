@@ -1,0 +1,3 @@
+    Retrieving concrete field value from deserialized object is provided 
+according to its kind of type - API for primitive data types and readObject()
+with explicit type casting for object types.

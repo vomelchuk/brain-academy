@@ -1,0 +1,5 @@
+    There are two main classes in Java language, which provides serialization 
+and deserialization processes:
+
+         - ObjectInputStream (extends InputStream);
+         - ObjectOutputStream (extends OutputStream).
