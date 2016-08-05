@@ -7,9 +7,9 @@ import com.labs.lab3.MyFileCopy;
 public class Labs_3_1 {
 
 	public static void demo() {
-		// lab_3_1_1();
+		lab_3_1_1();
 		// lab_3_1_2();
-		lab_3_1_3();
+		// lab_3_1_3();
 	}
 
 	private static void lab_3_1_1() {
