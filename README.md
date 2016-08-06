@@ -1,1 +1,1 @@
-Learning projects at `Brain Academy`
+Laboratory  projects at `Brain Academy`

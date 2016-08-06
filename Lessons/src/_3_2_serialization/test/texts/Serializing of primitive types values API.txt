@@ -1,2 +1,0 @@
-    Serializing of primitive types values is provided with help of related such 
-kind of data types API. For example, with method writeFloat()/readFloat().
