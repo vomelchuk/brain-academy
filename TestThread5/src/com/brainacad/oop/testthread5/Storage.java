@@ -3,7 +3,7 @@ package com.brainacad.oop.testthread5;
 public class Storage {
 	// fields
 	private int storage;
-	private boolean isReady = true;
+	private boolean isSetted = false;
 
 	// constructors
 	public Storage() {
@@ -12,25 +12,25 @@ public class Storage {
 
 	// accessors
 	public synchronized void setStorage(int value) {
-		while (!isReady) {
+		while (isSetted) {
 			try {
 				wait();
 			} catch (InterruptedException e) {
 			}
 		}
-		isReady = false;
 		storage = value;
+		isSetted = true;
 		notify();
 	}
 
 	public synchronized int getStorage() {
-		while (isReady) {
+		while (!isSetted) {
 			try {
 				wait();
 			} catch (InterruptedException e) {
 			}
 		}
-		isReady = true;
+		isSetted = false;
 		notify();
 		return storage;
 	}

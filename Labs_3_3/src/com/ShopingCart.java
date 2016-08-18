@@ -31,7 +31,7 @@ public class ShopingCart {
 	public void add(Good... goods) {
 		for (Good good : goods) {
 			this.goods.add(good);
-			database.insert(good.getName(), good.getPrice(),good.getWeight()weight);
+			database.insert(good.getName(), good.getPrice(),good.getWeight());
 		}
 	}
 
